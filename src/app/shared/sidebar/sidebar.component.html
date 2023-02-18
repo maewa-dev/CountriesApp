@@ -1,1 +1,9 @@
-<p>sidebar works!</p>
+<h2>Búsqueda</h2>
+<hr>
+<ul class="list-group">
+    <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="list-group-item">Buscar
+        país</li>
+    <!--Se define porque es un path vacio (routerLink=""). si fuera routerLink='pais' no haria falta el routerLinkActiveOptions-->
+    <li routerLink="region" routerLinkActive="active" class="list-group-item">Buscar por región</li>
+    <li routerLink="capital" routerLinkActive="active" class="list-group-item">Buscar por capital</li>
+</ul>
