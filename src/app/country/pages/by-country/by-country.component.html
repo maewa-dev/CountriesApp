@@ -1,1 +1,43 @@
-<p>by-country works!</p>
+<h2>Por País</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="search()" autocomplete="off">
+            <input type="text" name="term" placeholder="Buscar país..." class="form-control" [(ngModel)]="searched" />
+        </form>
+    </div>
+</div>
+
+
+<hr>
+<div *ngIf="isError" class="alert alert-danger">No se encontró nada con el término {{searched}}</div>
+
+<div class="row">
+    <div class="col">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Bandera</th>
+                    <th>Nombre</th>
+                    <th>Población</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let country of countries let i = index">
+                    <td>{{i+1}}</td>
+                    <td>
+                        <img class="small-flag" [src]="country.flags.png" [alt]="country.name.common">
+                    </td>
+                    <td>{{country.name.common}}</td>
+                    <td>{{country.population}}</td>
+                    <td>
+                        <a [routerLink]="['/country/', country.cca2]" >Ver...</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
