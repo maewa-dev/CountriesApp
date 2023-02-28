@@ -7,6 +7,7 @@ import { ByCountryComponent } from './pages/by-country/by-country.component';
 import { ByRegionComponent } from './pages/by-region/by-region.component';
 import { ViewCountryComponent } from './pages/view-country/view-country.component';
 import { RouterModule } from '@angular/router';
+import { ComponentsModule } from './components/components.module';
 
 
 
@@ -15,12 +16,13 @@ import { RouterModule } from '@angular/router';
     ByCapitalComponent,
     ByCountryComponent,
     ByRegionComponent,
-    ViewCountryComponent
+    ViewCountryComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ComponentsModule
   ],
   exports: [
     ByCapitalComponent,

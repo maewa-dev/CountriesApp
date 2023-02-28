@@ -16,12 +16,19 @@ export class ByCountryComponent {
 
   countries : Country[] = [];
 
-  search() {
+  search(searched:string) {
+    console.log(searched)
+    this.searched = searched;
     this.isError = false;
-    this.countryService.searchCountry(this.searched).subscribe(countries => {
+    this.countryService.searchCountry(searched).subscribe(countries => {
       this.countries = countries;
     }, (err) => {
       this.isError = true;
     });
   } 
+
+  suggestions(searched: string) {
+    this.isError = false;
+    console.log(searched)
+  }
 }
