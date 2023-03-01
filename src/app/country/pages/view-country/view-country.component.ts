@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CountryService } from '../../services/country.service';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
+import { Country } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'app-view-country',
@@ -15,12 +16,25 @@ export class ViewCountryComponent implements OnInit {
     private countryService: CountryService,
     ) { }
 
+  country!: Country;
+
   ngOnInit(): void {
 
     this.activatedRoute.params
-    .pipe(switchMap(({countryCode}) => this.countryService.getCountryByAlpha(countryCode))).subscribe( resp => {
-      console.log(resp)
-    });
+    .pipe(
+      switchMap(({countryCode}) => this.countryService.getCountryByAlpha(countryCode)),
+      tap( console.log  )  //todo_mrt forma corta de hacer una impresion en consola
+    )
+    .subscribe( country => this.country = country);
+
+
+
+
+
+
+
+
+
   }
 
 }
