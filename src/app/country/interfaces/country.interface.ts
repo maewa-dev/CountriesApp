@@ -34,6 +34,8 @@ export interface Country {
     startOfWeek:  string;
     capitalInfo:  CapitalInfo;
     postalCode:   PostalCode;
+    alpha2Code: string,
+    alpha3Code: string,
 }
 
 export interface CapitalInfo {

@@ -23,7 +23,7 @@
                 <li class="list-group-item">
                     <strong>Código numérico</strong> {{country.ccn3}}
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item" *ngIf="country.cca2">
                     <strong>Código alpha3</strong> {{country.cca2}}
                 </li>
             </ul>

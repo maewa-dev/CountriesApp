@@ -8,25 +8,30 @@ import { Country } from '../interfaces/country.interface';
 })
 export class CountryService {
 
-  private apiUrl: string = 'https://restcountries.com/v3.1';
+  private apiUrlv3: string = 'https://restcountries.com/v3.1';
+  private apiUrlv2: string = 'https://restcountries.com/v2/';
 
   constructor( private http: HttpClient ) { }
 
-
   searchCountry(searched: string): Observable<Country[]> {
-    const url = `${ this.apiUrl }/name/${ searched }`
+    const url = `${ this.apiUrlv3 }/name/${ searched }`
     return this.http.get<Country[]>(url);
   }
 
   searchCountryByCapital(searched: string): Observable<Country[]> {
-    const url = `${ this.apiUrl }/capital/${ searched }`
+    const url = `${ this.apiUrlv3 }/capital/${ searched }`
     return this.http.get<Country[]>(url);
   }
   
   getCountryByAlpha(id: string): Observable<Country> {
-    const url = `${ this.apiUrl }/alpha/${ id }`
+    const url = `${ this.apiUrlv3 }/alpha/${ id }`
     return this.http.get<Country[]>(url).pipe(map(countries => countries[0]));
-
   }
 
+  getCountryByRegion (region: string):Observable<Country[]> {
+    region = region.toLowerCase();
+    const url = `${ this.apiUrlv2 }/regionalbloc/${ region }`
+    return this.http.get<Country[]>(url);
+
+  }
 }

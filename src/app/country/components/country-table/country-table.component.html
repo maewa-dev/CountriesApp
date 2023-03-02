@@ -15,7 +15,8 @@
             <td>
                 <img class="small-flag" [src]="country.flags.png" [alt]="country.name.common">
             </td>
-            <td> {{country.name.common}}</td>
+            <td *ngIf="country.name.common"> {{country.name.common}}</td>
+            <td *ngIf="!country.name.common"> {{country.name}}</td>
             <td> {{country.capital}}</td>
             <td>{{country.population}}</td>
             <td>
