@@ -17,7 +17,6 @@ export class ByCapitalComponent {
   countries : Country[] = [];
 
   search(searched:string) {
-    console.log(searched)
     this.searched = searched;
     this.isError = false;
     this.countryService.searchCountryByCapital(searched).subscribe(countries => {
