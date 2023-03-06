@@ -1,17 +1,17 @@
-<h3>Buscar por región <small> {{activeRegion | titlecase}} </small></h3>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h3>Buscar por región <small> {{activeRegion | titlecase}} </small></h3>
+    <h5>Seleccione región</h5>
 
-<h5>Seleccione región</h5>
-
-<div class="flex">
-    <button *ngFor="let region of getRegions()" class=" me-2"
-        (click)="activateRegion(region.code)"
-        [class]= getCssClass(region.code)>
+    <div class="flex">
+        <button *ngFor="let region of getRegions()" class=" me-2" (click)="activateRegion(region.code)"
+            [class]=getCssClass(region.code)>
             {{region.value | titlecase}}
         </button>
-</div>
+    </div>
 
-<div *ngIf="countries.length > 0" class="row">
-    <div class="col">
-        <app-country-table [countries]="countries"></app-country-table>
+    <div *ngIf="countries.length > 0" class="row">
+        <div class="col">
+            <app-country-table [countries]="countries"></app-country-table>
+        </div>
     </div>
 </div>
